@@ -4,6 +4,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
+print (os.getenv("AGENT_IDid"))
+print(os.getenv("TENANT_ID"))
 chat_model = LiteLlm(
     model="openai/gpt-4o",
     api_base= os.getenv("LITELLM_URL"),
