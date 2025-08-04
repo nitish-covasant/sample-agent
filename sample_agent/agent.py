@@ -1,19 +1,22 @@
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 chat_model = LiteLlm(
     model="openai/gpt-4o",
-    api_base= "https://aifabric-litellm.dev.gcp.covasant.io/v2",
+    api_base= os.getenv("LITELLM_URL"),
     api_key="slkk",
     headers={"agent": "sagent007t",
-                        "appid": "3b0a205d-45dd-43a6-b17f-1d4b8911ce78",
+                        "appid": os.getenv("AGENT_ID"),
                         "userid": "user_123_456",
-                        "tenantid": "115bc9db-4017-4f69-9816-6ca32660f6e5",
+                        "tenantid": os.getenv("TENANT_ID"),
                         "sessionid": "session_123_456",
                         "teamid": "team_123_456"})
 
-
+print (os.getenv("AGENT_IDid"))
+print(os.getenv("TENANT_ID"))
 
 root_agent = Agent(
     name="user_query_agent",
